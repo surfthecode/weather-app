@@ -2,7 +2,7 @@
 
 WebApp based on an AP
 
-## Hello Stranger
+## Weather APP
 
 ### Tasks
 
