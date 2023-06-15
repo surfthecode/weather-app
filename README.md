@@ -1,13 +1,13 @@
-# weather-app
+# Weather Guru
 
-WebApp based on an AP
+WebApp based on an API
 
 ## Weather APP
 
 ### Tasks
 
 - [x] Adauga taskuri
-- [ ] Creaza formular pentru a cere date pentru un oras specific (fara a face request)
+- [x] Creaza formular pentru a cere date pentru un oras specific (fara a face request)
 - [ ] Preia prin evenimentul de click valoarea din input si stocheaza intr-o variabila
 - [ ] Cu valoarea din variabila (ex city) face requestul de fetch spre API
 - [ ] Creaza de fisiere CSS, foldere CSS, IMAGES
