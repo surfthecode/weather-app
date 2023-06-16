@@ -21,6 +21,10 @@ async function getData() {
       const cityName = data.city.name;
       console.log(cityName);
 
+      // get country code
+      const country = data.city.country;
+      console.log(country);
+
       // get current sunset time
       const dateSet = new Date(data.city.sunset * 1000);
       const sunset = dateSet.toLocaleString("en-GB", {
