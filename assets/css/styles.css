@@ -1,21 +1,26 @@
-html {
-  color: #191919;
-}
-
 header,
 main,
 footer {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-body,
+body {
+  color: #09465d !important;
+  background-color: #dfe0e1;
+}
+
 .nav-wrapper {
   background-color: #dfe0e1;
 }
 
-.navbar-brand img {
-  max-width: 250px;
+.navbar-brand {
+  max-width: 150px;
+}
+
+.weather-guru-logo {
+  width: 100%;
+  object-fit: contain;
 }
 
 .nav-link {
@@ -26,16 +31,19 @@ body,
   color: #f58733 !important;
 }
 
+.title-selection {
+  color: #f58733;
+}
+
+.subtitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: #128cba;
+}
+
 .main-container {
   position: relative;
-}
-
-.hero-section {
-  width: 35%;
-}
-
-.aside {
-  width: 65%;
+  padding-bottom: 16px;
 }
 
 .main-container::before {
@@ -52,16 +60,21 @@ body,
   bottom: 0;
   right: 0;
   z-index: -1;
-  /* box-shadow: inset 2px 2px 10px 10px #dfe0e1; */
+}
+
+.hero-content {
+  font-size: 14px;
+  line-height: 1.8;
 }
 
 footer {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 20px;
+  margin-top: 16px;
   margin-bottom: 0px;
   gap: 48px;
+  font-size: 14px;
 }
 
 .footer-left {
@@ -97,6 +110,10 @@ footer {
 .footer-links li a {
   text-decoration: none;
   color: #128cba;
+}
+
+.footer-item {
+  font-size: 16px;
 }
 
 @media (max-width: 576px) {
