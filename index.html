@@ -84,11 +84,253 @@
       </section>
 
       <aside class="aside">
-        <div class="aside-container">
-          <div class="icon-container">Weather icon here</div>
-          <div class="location-container">
-            <div class="city-name">City name</div>
-            <div class="current-weather">sunny with clouds</div>
+        <div class="aside-container d-flex flex-column">
+          <div
+            class="location-container d-flex flex-row justify-content-between align-items-start"
+          >
+            <div
+              class="location d-flex flex-row justify-content-start align-items-center"
+            >
+              <div class="location-icon m-0 p-0">
+                <img
+                  class="height16"
+                  src="./assets/icons/location-outline.svg"
+                  alt="location pin icon"
+                />
+              </div>
+              <div class="city size16">Tenerife</div>
+            </div>
+
+            <div class="date-time">Fri 16, 1:22 pm</div>
+          </div>
+
+          <div class="current-weather d-flex flex-row justify-content-between">
+            <div class="temp d-flex flex-row justify-content-start">
+              <div class="current-temp-value size48">18</div>
+              <div class="current-temp-degree size16">°C</div>
+            </div>
+
+            <div class="weather-icon"></div>
+
+            <div class="min-max-temp">
+              <div
+                class="max-temp-container d-flex flex-row justify-content-between"
+              >
+                <div class="max-temp-icon m-0 p-0">
+                  <img
+                    class="height20 m-0 p-0"
+                    src="./assets/icons/chevron-up-outline.svg"
+                    alt="chevron up icon"
+                  />
+                </div>
+                <div class="max-temp m-0 p-0">
+                  <div class="max-temp-value m0 p-0">
+                    18 <span class="max-temp-degree">°C</span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="min-temp-container d-flex flex-row justify-content-between"
+              >
+                <div class="min-temp-icon m-0 p-0">
+                  <img
+                    class="height20 m-0 p-0"
+                    src="./assets/icons/chevron-down-outline.svg"
+                    alt="chevron up icon"
+                  />
+                </div>
+                <div class="min-temp">
+                  <div class="min-temp-value m-0 p-0">
+                    16 <span class="min-temp-degree">°C</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="current-weather-status d-flex flex-row justify-content-between align-items-center"
+          >
+            <div
+              class="cloud-container d-flex flex-column justify-content-center align-items-start"
+            >
+              <div class="cloud-icon">
+                <img
+                  class="height30"
+                  src="./assets/icons/cloud-outline.svg"
+                  alt="cloud icon"
+                />
+              </div>
+              <div class="cloud-value">50%</div>
+            </div>
+
+            <div class="weather-status">light rain</div>
+
+            <div
+              class="humidity-container d-flex flex-column justify-content-center align-items-end"
+            >
+              <div class="humidity-icon">
+                <img
+                  class="height30"
+                  src="./assets/icons/humidity-outline.svg"
+                  alt="humidity icon"
+                />
+              </div>
+              <div class="humidity-value">50%</div>
+            </div>
+          </div>
+
+          <div class="sun-cycles d-flex flex-row justify-content-between">
+            <div
+              class="sunrise-container d-flex flex-row justify-content-start"
+            >
+              <div class="sunrise-icon">
+                <img
+                  class="height30"
+                  src="./assets/icons/sunny-outline.svg"
+                  alt="sunrise icon"
+                />
+              </div>
+              <div class="sunrise">
+                sunrise: <span class="sunrise-value">05:00</span>
+              </div>
+            </div>
+
+            <div class="sunset-container d-flex flex-row justify-content-start">
+              <div class="sunset-icon">
+                <img
+                  class="height30"
+                  src="./assets/icons/moon-outline.svg"
+                  alt="sunset icon"
+                />
+              </div>
+              <div class="sunset">
+                sunset: <span class="sunset-value">05:00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="forecast-weather d-flex flex-row justify-content-between">
+            <div
+              class="day1-container d-flex flex-column justify-content-start align-items-center"
+            >
+              <div class="day1">day1</div>
+
+              <div class="forecast-weather-icon1"></div>
+
+              <div class="forecast-weather-description1">light rain</div>
+
+              <div
+                class="forecast-max-temp-container1 d-flex flex-row justify-content-between"
+              >
+                <div class="forecast-max-temp-icon1">
+                  <img
+                    class="height20"
+                    src="./assets/icons/chevron-up-outline.svg"
+                    alt="chevron up icon"
+                  />
+                </div>
+                <div class="forecast-max-temp-value1">
+                  18 <span class="forecast-max-temp-degree1"></span>°C
+                </div>
+              </div>
+
+              <div
+                class="forecast-min-temp-container1 d-flex flex-row justify-content-between"
+              >
+                <div class="forecast-min-temp-icon1">
+                  <img
+                    class="height20"
+                    src="./assets/icons/chevron-down-outline.svg"
+                    alt="chevron down icon"
+                  />
+                </div>
+                <div class="forecast-min-temp-value1">
+                  16 <span class="forecast-min-temp-degree1"></span>°C
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="day2-container d-flex flex-column justify-content-start align-items-center"
+            >
+              <div class="day2">day2</div>
+
+              <div class="forecast-weather-icon2"></div>
+
+              <div class="forecast-weather-description2">light rain</div>
+
+              <div
+                class="forecast-max-temp-container2 d-flex flex-row justify-content-between"
+              >
+                <div class="forecast-max-temp-icon2">
+                  <img
+                    class="height20"
+                    src="./assets/icons/chevron-up-outline.svg"
+                    alt="chevron up icon"
+                  />
+                </div>
+                <div class="forecast-max-temp-value2">
+                  18 <span class="forecast-max-temp-degree2"></span>°C
+                </div>
+              </div>
+
+              <div
+                class="forecast-min-temp-container2 d-flex flex-row justify-content-between"
+              >
+                <div class="forecast-min-temp-icon2">
+                  <img
+                    class="height20"
+                    src="./assets/icons/chevron-down-outline.svg"
+                    alt="chevron down icon"
+                  />
+                </div>
+                <div class="forecast-min-temp-value2">
+                  16 <span class="forecast-min-temp-degree2"></span>°C
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="day3-container d-flex flex-column justify-content-start align-items-center"
+            >
+              <div class="day3">day3</div>
+
+              <div class="forecast-weather-icon3"></div>
+
+              <div class="forecast-weather-description3">light rain</div>
+
+              <div
+                class="forecast-max-temp-container3 d-flex flex-row justify-content-between"
+              >
+                <div class="forecast-max-temp-icon3">
+                  <img
+                    class="height20"
+                    src="./assets/icons/chevron-up-outline.svg"
+                    alt="chevron up icon"
+                  />
+                </div>
+                <div class="forecast-max-temp-value3">
+                  18 <span class="forecast-max-temp-degree3"></span>°C
+                </div>
+              </div>
+
+              <div
+                class="forecast-min-temp-container3 d-flex flex-row justify-content-between"
+              >
+                <div class="forecast-min-temp-icon3">
+                  <img
+                    class="height20"
+                    src="./assets/icons/chevron-down-outline.svg"
+                    alt="chevron down icon"
+                  />
+                </div>
+                <div class="forecast-min-temp-value3">
+                  16 <span class="forecast-min-temp-degree3"></span>°C
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </aside>

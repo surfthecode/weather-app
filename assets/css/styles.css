@@ -67,6 +67,28 @@ body {
   line-height: 1.8;
 }
 
+.height16 {
+  height: 16px;
+}
+
+.height20 {
+  height: 20px;
+}
+
+.height30 {
+  height: 30px;
+}
+
+.size48 {
+  font-size: 48px;
+  line-height: 48px;
+}
+
+.size16 {
+  font-size: 16px;
+  line-height: 24px;
+}
+
 footer {
   display: flex;
   justify-content: space-between;
