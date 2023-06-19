@@ -54,6 +54,7 @@ body {
 .main-container {
   position: relative;
   padding-bottom: 16px;
+  padding-top: 16px;
 }
 
 .main-container::before {
@@ -106,8 +107,9 @@ body {
 
 .aside-container {
   padding: 25px;
-  border: 1px solid #b2b3b4;
+  border: 2px solid #b2b3b4;
   border-radius: 10px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .current-weather,
@@ -143,6 +145,10 @@ body {
 .cloud-icon,
 .humidity-icon {
   filter: opacity(0.8) drop-shadow(0 0 0 #128cba);
+}
+
+.weather-status {
+  color: #128cba;
 }
 
 .max-temp-container {
