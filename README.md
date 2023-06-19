@@ -8,17 +8,23 @@ WebApp based on an API
 
 - [x] Add tasks
 - [x] Create form user input for searching by city (without making the request)
-- [ ] Store the user input in a variable
-- [ ] Make the api request using the user input
-- [ ] Create CSS, img, pages, js folders
-- [ ] Add bootstrap via cdn
-- [ ] Create custom CSS file
-- [ ] Add JS source
-- [ ] Hero section styling
-- [ ] Footer styling
-- [ ] Navigation bar + about and puns pages + navigation between them
-- [ ] Process the api response and store needed info in variables (current weather, temp, humidity, high, low, wind, etc.)
-- [ ] Add formatted api content to html elements in page
-- [ ] Style Index page
-- [ ] Style About page
-- [ ] style Puns page
+- [x] Create website layout sketch and determine what pages will be available
+- [x] Create website pages content around the weather app theme
+- [x] Create business logo and establish color scheme
+- [x] Create project file structure, html, css, script files, assets folders and files
+- [x] Select free icons for weather card and add them to the folders
+- [x] Create custom favicon
+- [x] Create responsive navbar
+- [x] Create hero section
+- [x] Create weather card
+- [x] Create footer section
+- [x] Create About page
+- [x] Create weather Puns page
+- [x] Update content on all pages
+- [x] Write script code: call weather api, treat the response, store wanted info into variables - for current weather
+- [x] Style homepage mobile first
+- [x] Add API response current weather info to webpage using DOM manipulation
+- [ ] Write logic for preocessing API forecast data and insert in page
+- [ ] Finalize styling for user input field and get device location button
+- [ ] Add @media queries styling for homepage
+- [ ] Add @media queries styling for About, Puns page

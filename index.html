@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico" />
     <title>WeatherGuru - Home</title>
   </head>
   <body>
@@ -59,7 +60,9 @@
     <main
       class="main-container d-flex flex-row flex-wrap justify-content-center mt-3"
     >
-      <section class="hero-section">
+      <section
+        class="hero-section d-flex flex-column justify-content-center align-items-center"
+      >
         <h1 class="title fs-3 mt-1">
           <span class="title-selection">WeatherGuru</span> - Your Personal
           Weather Assistant
@@ -76,15 +79,26 @@
           today and see how easy it is to stay on top of the weather!
         </p>
 
-        <form class="mt-4">
-          <input type="text" />
-          <button type="submit" class="fs-6">&#x276F;</button>
-          <a href="#" class="fs-6">Get device location</a>
+        <form class="input-form mt-4">
+          <div
+            class="input-form-container d-flex flex-row justify-content-between align-items-center"
+          >
+            <input class="input-field" type="text" />
+            <button class="input-btn" type="submit" class="fs-6">
+              &#x276F;
+            </button>
+          </div>
+
+          <div
+            class="geolocation d-flex flex-row justify-content-center align-items-center"
+          >
+            <a href="#" class="input-link fs-6">Get device location</a>
+          </div>
         </form>
       </section>
 
       <aside class="aside">
-        <div class="aside-container d-flex flex-column mt-3">
+        <div class="aside-container d-flex flex-column mt-5">
           <div
             class="location-container d-flex flex-row justify-content-between align-items-start"
           >
