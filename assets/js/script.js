@@ -57,6 +57,10 @@ const getData = async function () {
       });
       console.log(sunrise);
 
+      // ADD sunrise, sunset:
+      document.querySelector(".sunrise-value").innerHTML = sunrise;
+      document.querySelector(".sunset-value").innerHTML = sunset;
+
       // get current date and time
       const currentDate = new Date().toLocaleString("en-GB", {
         weekday: "short",
