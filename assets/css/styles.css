@@ -42,6 +42,22 @@ body {
 
 .title-selection {
   color: #f58733;
+  position: relative;
+}
+
+.title-selection::before {
+  position: absolute;
+  content: "";
+  background-color: #dfe0e1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  top: -5px;
+  left: -8px;
+  bottom: -5px;
+  right: -8px;
+  z-index: -1;
+  transform: skewX(20deg);
 }
 
 .subtitle {

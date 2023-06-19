@@ -5,9 +5,16 @@ const inputBtn = document.querySelector(".input-btn");
 
 inputBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  city = inputField.value;
-
-  getData();
+  if (
+    typeof inputField.value === "string" &&
+    inputField.value != "" &&
+    inputField.value.length > 1
+  ) {
+    city = inputField.value;
+    getData();
+  } else {
+    alert("Please provide a valid city name..");
+  }
 });
 
 inputBtn.addEventListener("keydown", (e) => {
