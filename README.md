@@ -24,7 +24,7 @@ WebApp based on an API
 - [x] Write script code: call weather api, treat the response, store wanted info into variables - for current weather
 - [x] Style homepage mobile first
 - [x] Add API response current weather info to webpage using DOM manipulation
-- [ ] Write logic for preocessing API forecast data and insert in page
+- [ ] Write logic for processing API forecast data and insert in page
 - [ ] Finalize styling for user input field and get device location button
 - [ ] Add @media queries styling for homepage
 - [ ] Add @media queries styling for About, Puns page
