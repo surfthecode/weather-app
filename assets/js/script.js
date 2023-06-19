@@ -61,8 +61,9 @@ const getData = async function () {
       document.querySelector(".sunrise-value").innerHTML = sunrise;
       document.querySelector(".sunset-value").innerHTML = sunset;
 
-      // get current date and time
-      const currentDate = new Date().toLocaleString("en-GB", {
+      // get current date and time;
+
+      let currentDate = new Date().toLocaleString("en-GB", {
         weekday: "short",
         day: "numeric",
         hour12: true,
@@ -70,13 +71,8 @@ const getData = async function () {
         minute: "2-digit",
       });
 
-      //ADD date time:
+      // update date
       document.querySelector(".date-time").innerHTML = currentDate;
-
-      console.log(currentDate);
-
-      const currentDate2 = new Date().toISOString().slice(0, 10);
-      console.log(currentDate2);
 
       // get current temp
       const currentTemp = Math.floor(data.list[0].main.temp);
