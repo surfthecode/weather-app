@@ -29,5 +29,5 @@ URL: https://surfthecode.github.io/weather-app/
 - [x] Finalize styling for user input field and get device location button
 - [x] Add @media queries styling for homepage
 - [ ] Add @media queries styling for About, Puns page
-- [ ] Add logic for accept cookies modal / geolocation permission
-- [ ] Write logic for processing API forecast data and insert in page
+- [ ] Add logic for dealing with cookies / geolocation - permission from user
+- [ ] Write logic for processing API 3-day forecast data and insert in page
