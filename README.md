@@ -1,24 +1,24 @@
-# weather-app
+# Weather Guru
 
-WebApp based on an AP
+WebApp based on an API
 
 ## Weather APP
 
 ### Tasks
 
-- [x] Adauga taskuri
-- [ ] Creaza formular pentru a cere date pentru un oras specific (fara a face request)
-- [ ] Preia prin evenimentul de click valoarea din input si stocheaza intr-o variabila
-- [ ] Cu valoarea din variabila (ex city) face requestul de fetch spre API
-- [ ] Creaza de fisiere CSS, foldere CSS, IMAGES
-- [ ] Adauga sursa de Bootstrap (CDN) in site
-- [ ] Adauga sursa CSS custom (adica ce se creeaza in folderul CSS) in site
-- [ ] Adauga sursa JS in scripts in site
-- [ ] Banner styling
+- [x] Add tasks
+- [x] Create form user input for searching by city (without making the request)
+- [ ] Store the user input in a variable
+- [ ] Make the api request using the user input
+- [ ] Create CSS, img, pages, js folders
+- [ ] Add bootstrap via cdn
+- [ ] Create custom CSS file
+- [ ] Add JS source
+- [ ] Hero section styling
 - [ ] Footer styling
-- [ ] Navigation bar + adauga pagini necesare + navigarea dintre ele
-- [ ] Preluarea raspunsului din request si stocarea intr-o forma simplificata (oras, stare vreme cu detalii necesare: sanse de ploaie, temperatura, etc)
-- [ ] Adaugarea continutului din API (cel formatat) in HTML
-- [ ] Stilizarea Index page
-- [ ] Stilizarea About page
-- [ ] Stilizarea Check weather page
+- [ ] Navigation bar + about and puns pages + navigation between them
+- [ ] Process the api response and store needed info in variables (current weather, temp, humidity, high, low, wind, etc.)
+- [ ] Add formatted api content to html elements in page
+- [ ] Style Index page
+- [ ] Style About page
+- [ ] style Puns page
