@@ -25,7 +25,9 @@ const getData = async function () {
     const response = await fetch(source);
     const data = await response.json();
 
-    if (response.ok) {
+    if (response.status === 400) {
+      alert("Please provide a valid city name");
+    } else if (response.ok) {
       console.log("Success:", data);
 
       // get city name
