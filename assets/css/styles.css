@@ -14,8 +14,18 @@ body {
   background-color: #dfe0e1;
 }
 
-.navbar-brand {
+.navbar-toggler {
+  padding: 0px 2px 0px 2px;
+}
+
+.navbar-brand,
+.footer-brand {
   max-width: 150px;
+}
+
+.navbar-brand img,
+.footer-brand img {
+  width: 100%;
 }
 
 .weather-guru-logo {
@@ -130,6 +140,11 @@ body {
   color: #128cba;
 }
 
+.cloud-icon,
+.humidity-icon {
+  filter: opacity(0.8) drop-shadow(0 0 0 #128cba);
+}
+
 .max-temp-container {
   color: #f58733;
 }
@@ -204,12 +219,24 @@ footer {
   font-size: 16px;
 }
 
-@media (max-width: 576px) {
-  .navbar-brand img {
+@media (min-width: 576px) {
+  .navbar-brand,
+  .footer-brand {
     max-width: 200px;
   }
 
   .navbar-toggler {
-    padding: 0px 2px 0px 2px;
+    padding: 4px 12px;
+  }
+}
+
+@media (min-width: 850px) {
+  .hero-section {
+    width: 50%;
+    padding-right: 50px;
+  }
+
+  .main-container {
+    flex-wrap: nowrap !important;
   }
 }
