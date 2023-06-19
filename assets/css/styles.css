@@ -69,7 +69,7 @@ h4 {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  opacity: 0.1;
+  opacity: 0.3;
   top: 0;
   left: 0;
   bottom: 0;
@@ -339,8 +339,22 @@ footer {
   }
 
   .main-container {
-    padding-top: 250px;
-    padding-bottom: 250px;
-    gap: 150px;
+    padding-top: 240px;
+    padding-bottom: 240px;
+    gap: 200px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .main-container {
+    gap: 350px;
+  }
+
+  .hero-section {
+    scale: 1.2;
+  }
+
+  aside {
+    scale: 1.3;
   }
 }
