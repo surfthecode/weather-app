@@ -1,15 +1,26 @@
-const API_KEY = "47de525c8b6e8be1118dc5ace4b3687a"; //should be private, but no server, nothing to hide btw.
+const apiKey = "47de525c8b6e8be1118dc5ace4b3687a";
+let city = "";
+const inputField = document.querySelector(".input-field");
+const inputBtn = document.querySelector(".input-btn");
 
-const city = "Timisoara";
-const source = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&exclude=hourly&appid=${API_KEY}`;
+inputBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  city = inputField.value;
 
-// fetch(source)
-//   .then((x) => x.text())
-//   .then((y) => (document.querySelector(".demo").innerHTML = y));
-let id = "";
-const iconURL = `https://openweathermap.org/img/wn/${id}@2x.png`;
+  getData();
+});
 
-async function getData() {
+inputBtn.addEventListener("keydown", (e) => {
+  e.preventDefault();
+  if (e.key === "Enter") {
+    city = inputField.value;
+  }
+  getData();
+});
+
+const getData = async function () {
+  let source = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&exclude=hourly&appid=${apiKey}`;
+
   try {
     const response = await fetch(source);
     const data = await response.json();
@@ -122,6 +133,4 @@ async function getData() {
   } catch (error) {
     console.log("Fetch error:", error);
   }
-}
-
-getData();
+};
