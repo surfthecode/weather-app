@@ -5,12 +5,12 @@ const inputBtn = document.querySelector(".input-btn");
 
 inputBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  if (
-    typeof inputField.value === "string" &&
-    inputField.value != "" &&
-    inputField.value.length > 1
-  ) {
+
+  const pattern = /^[A-Za-z]+$/;
+
+  if (inputField.value.match(pattern)) {
     city = inputField.value;
+
     getData();
   } else {
     alert("Please provide a valid city name..");
@@ -71,7 +71,6 @@ const getData = async function () {
       document.querySelector(".sunset-value").innerHTML = sunset;
 
       // get current date and time;
-
       let currentDate = new Date().toLocaleString("en-GB", {
         weekday: "short",
         day: "numeric",
