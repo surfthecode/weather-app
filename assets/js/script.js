@@ -1,20 +1,40 @@
-const API_KEY = "47de525c8b6e8be1118dc5ace4b3687a"; //should be private, but no server, nothing to hide btw.
+const apiKey = "47de525c8b6e8be1118dc5ace4b3687a";
+let city = "";
+const inputField = document.querySelector(".userInput");
+const inputBtn = document.querySelector(".userInputBtn");
 
-const city = "Timisoara";
-const source = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&exclude=hourly&appid=${API_KEY}`;
+inputBtn.addEventListener("click", (e) => {
+  e.preventDefault();
 
-// fetch(source)
-//   .then((x) => x.text())
-//   .then((y) => (document.querySelector(".demo").innerHTML = y));
-let id = "";
-const iconURL = `https://openweathermap.org/img/wn/${id}@2x.png`;
+  const pattern = /^[A-Za-z]+$/;
 
-async function getData() {
+  if (inputField.value.match(pattern)) {
+    city = inputField.value;
+
+    getData();
+  } else {
+    alert("Please provide a valid city name..");
+  }
+});
+
+inputBtn.addEventListener("keydown", (e) => {
+  e.preventDefault();
+  if (e.key === "Enter") {
+    city = inputField.value;
+  }
+  getData();
+});
+
+const getData = async function () {
+  let source = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&exclude=hourly&appid=${apiKey}`;
+
   try {
     const response = await fetch(source);
     const data = await response.json();
 
-    if (response.ok) {
+    if (response.status === 400) {
+      alert("Please provide a valid city name");
+    } else if (response.ok) {
       console.log("Success:", data);
 
       // get city name
@@ -46,8 +66,12 @@ async function getData() {
       });
       console.log(sunrise);
 
-      // get current date and time
-      const currentDate = new Date().toLocaleString("en-GB", {
+      // ADD sunrise, sunset:
+      document.querySelector(".sunrise-value").innerHTML = sunrise;
+      document.querySelector(".sunset-value").innerHTML = sunset;
+
+      // get current date and time;
+      let currentDate = new Date().toLocaleString("en-GB", {
         weekday: "short",
         day: "numeric",
         hour12: true,
@@ -55,13 +79,8 @@ async function getData() {
         minute: "2-digit",
       });
 
-      //ADD date time:
+      // update date
       document.querySelector(".date-time").innerHTML = currentDate;
-
-      console.log(currentDate);
-
-      const currentDate2 = new Date().toISOString().slice(0, 10);
-      console.log(currentDate2);
 
       // get current temp
       const currentTemp = Math.floor(data.list[0].main.temp);
@@ -122,6 +141,4 @@ async function getData() {
   } catch (error) {
     console.log("Fetch error:", error);
   }
-}
-
-getData();
+};
