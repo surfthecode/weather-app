@@ -1,5 +1,6 @@
 const apiKey = "47de525c8b6e8be1118dc5ace4b3687a";
 let city = "";
+let id = "";
 const inputField = document.querySelector(".userInput");
 const inputBtn = document.querySelector(".userInputBtn");
 
@@ -71,13 +72,17 @@ const getData = async function () {
       document.querySelector(".sunset-value").innerHTML = sunset;
 
       // get current date and time;
-      let currentDate = new Date().toLocaleString("en-GB", {
-        weekday: "short",
-        day: "numeric",
-        hour12: true,
-        hour: "numeric",
-        minute: "2-digit",
-      });
+      let currentDate = new Date(data.list[0].dt * 1000).toLocaleString(
+        "en-GB",
+        {
+          weekday: "short",
+          day: "numeric",
+          hour12: true,
+          hour: "numeric",
+          minute: "2-digit",
+        }
+      );
+      console.log(currentDate);
 
       // update date
       document.querySelector(".date-time").innerHTML = currentDate;
@@ -135,6 +140,70 @@ const getData = async function () {
       document.querySelector(
         ".weather-icon-img"
       ).src = `https://openweathermap.org/img/wn/${currentWeatherIconCode}@2x.png`;
+
+      // get weather description codes
+      switch (currentWeatherDescription) {
+        case "few clouds":
+          document.querySelector(".main-container").style.backgroundImage =
+            'url("./assets/img/few-clouds-slate.jpg")';
+          break;
+        case "broken clouds":
+          document.querySelector(".main-container").style.backgroundImage =
+            'url("./assets/img/broken-clouds-slate.jpg")';
+          break;
+        case "scattered clouds":
+          document.querySelector(".main-container").style.backgroundImage =
+            'url("./assets/img/scattered-clouds-slate.jpg")';
+          break;
+        case "clear sky":
+          document.querySelector(".main-container").style.backgroundImage =
+            'url("./assets/img/clear-sky.jpg")';
+          break;
+        case "light rain":
+          document.querySelector(".main-container").style.backgroundImage =
+            'url("./assets/img/shower-rain-slate.jpg")';
+          break;
+        case "rain":
+          document.querySelector(".main-container").style.backgroundImage =
+            'url("./assets/img/rain-slate.jpg")';
+          break;
+        case "moderate rain":
+          document.querySelector(".main-container").style.backgroundImage =
+            'url("./assets/img/rain-slate.jpg")';
+          break;
+        case "shower rain":
+          document.querySelector(".main-container").style.backgroundImage =
+            'url("./assets/img/shower-rain-slate.jpg")';
+          break;
+        case "mist":
+          document.querySelector(".main-container").style.backgroundImage =
+            'url("./assets/img/mist-slate.jpg")';
+          break;
+        case "snow":
+          document.querySelector(".main-container").style.backgroundImage =
+            'url("./assets/img/snow-slate.jpg")';
+          break;
+        case "thunderstorm":
+          document.querySelector(".main-container").style.backgroundImage =
+            'url("./assets/img/thunderstorm-slate.jpg")';
+          break;
+        default:
+          document.querySelector(".main-container").style.backgroundImage =
+            'url("./assets/img/clear-sky.jpg")';
+      }
+
+      // get all forecast dates
+      data.list.forEach((obj) => {
+        const dates = new Date(obj.dt * 1000).toLocaleString("en-GB", {
+          weekday: "short",
+          day: "numeric",
+          hour12: true,
+          hour: "numeric",
+          minute: "2-digit",
+        });
+
+        console.log(dates);
+      });
     } else {
       console.log("Server error:", response.status, response.statusText);
     }

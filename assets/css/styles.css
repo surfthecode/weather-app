@@ -9,46 +9,26 @@ main {
   padding-bottom: 66px;
 }
 
-main::before {
-  position: absolute;
-  content: "";
-  background-image: url("../img/clear\ sky.jpg");
+.main-container {
+  background-image: url("../img/clear-sky.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -2;
-}
-
-main::after {
-  position: absolute;
-  content: "";
-  background-color: #fff;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 65%;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
+  z-index: 0;
 }
 
 aside {
   width: 370px;
   font-size: 16px;
+  z-index: 0;
 }
 
 .aside-container {
   padding: 25px;
-  border: 2px solid #128cba;
+  border: 2px solid #b2b3b4;
   border-radius: 10px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  background-color: rgba(33, 37, 41, 0.8);
 }
 
 .current-weather,
@@ -64,7 +44,7 @@ aside {
 .day1-container,
 .day2-container,
 .day3-container {
-  border: 1px solid #09465d;
+  border: 1px solid #b2b3b4;
   border-radius: 5px;
   padding: 10px;
 }
@@ -83,7 +63,17 @@ aside {
 
 .cloud-icon,
 .humidity-icon {
-  filter: opacity(0.5) drop-shadow(0 0 0 #128cba);
+  filter: opacity(0.5) drop-shadow(1px 1px 1px #128cba);
+}
+
+.sunrise-icon,
+.sunset-icon,
+.location-icon {
+  filter: opacity(0.5) drop-shadow(1px 1px 1px #f58733);
+}
+
+.sunset-icon {
+  scale: 0.95;
 }
 
 .cloud-icon img,
@@ -153,7 +143,6 @@ footer {
 
 .navbar-toggler {
   border-color: #128cba;
-  /* background-color: #128cba; */
 }
 
 .height16 {
@@ -231,8 +220,13 @@ footer {
     padding: 50px;
   }
 
+  .cloud-icon,
+  .humidity-icon {
+    width: 50px;
+  }
+
   .cloud-icon img,
   .humidity-icon img {
-    width: 30px;
+    width: 100%;
   }
 }
