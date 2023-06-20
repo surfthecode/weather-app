@@ -223,6 +223,10 @@ footer {
     scale: 1.2;
   }
 
+  .current-temp-value {
+    font-size: 60px;
+  }
+
   .aside-container {
     padding: 50px;
   }
