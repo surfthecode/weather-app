@@ -4,6 +4,8 @@ WebApp based on an API
 
 ## Weather APP
 
+URL: https://surfthecode.github.io/weather-app/
+
 ### Tasks
 
 - [x] Add tasks
