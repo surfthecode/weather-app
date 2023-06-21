@@ -55,6 +55,7 @@ aside {
 .aside-container {
   padding: 25px;
   border: 2px solid #b2b3b4;
+  border: 2px solid #128cba;
   border-radius: 10px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   background-color: rgba(33, 37, 41, 1);
@@ -183,6 +184,8 @@ footer {
 .userInputBtn {
   width: 100%;
   max-width: 80px;
+  border-color: #128cba;
+  color: #128cba;
 }
 
 .nav-form {
