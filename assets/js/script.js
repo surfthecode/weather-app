@@ -4,13 +4,10 @@ const inputBtn = document.querySelector(".userInputBtn");
 const geolocationBtn = document.querySelector(".get-location-btn");
 let city = "";
 let id = "";
-
 let dateMinTempObj = {};
 let dateMaxTempObj = {};
 let dateWeatherDescriptionObj = {};
-
 let resultObj = {};
-
 let currentDate;
 
 // get user location coords by geolocation
@@ -233,16 +230,18 @@ const getData = async function (source) {
           minute: "2-digit",
         });
 
-        // const temp = obj.main.temp;
+        // get weather description, man temp, max temp from API
         const weatherDesc = obj.weather[0].description;
         const minTemp = obj.main.temp_min;
         const maxTemp = obj.main.temp_max;
 
+        // add each fate with its description, min/max temps to each top level object
         dateMinTempObj[dates] = minTemp;
         dateMaxTempObj[dates] = maxTemp;
         dateWeatherDescriptionObj[dates] = weatherDesc;
       });
 
+      // define today, tomorrow, and 2 days after
       const today = new Date();
       const tomorrow = new Date(today);
       tomorrow.setDate(tomorrow.getDate() + 1);
@@ -251,6 +250,7 @@ const getData = async function (source) {
       const dayAfterDayAfterTomorrow = new Date(today);
       dayAfterDayAfterTomorrow.setDate(dayAfterDayAfterTomorrow.getDate() + 3);
 
+      // create today + 3 next days array
       const dates = [
         today.getDate(),
         tomorrow.getDate(),
@@ -258,6 +258,7 @@ const getData = async function (source) {
         dayAfterDayAfterTomorrow.getDate(),
       ];
 
+      // loop through dates array and populate top level objects with key-value pairs for each day (today + 3 next days)
       for (const date of dates) {
         let minTempSum = 0;
         let maxTempSum = 0;
@@ -270,6 +271,7 @@ const getData = async function (source) {
 
           const [day, hour] = key.split(", ");
 
+          // reasign values for each key with api data
           if (Number(day) === date) {
             minTempSum += Number(dateMinTempObj[key]);
             maxTempSum += Number(dateMaxTempObj[key]);
@@ -278,6 +280,7 @@ const getData = async function (source) {
           }
         }
 
+        // add everything to final object and calc averages for min/max temps for each day
         resultObj[date] = {
           dailyAverageMinTemp: Math.floor(minTempSum / count),
           dailyAverageMaxTemp: Math.round(maxTempSum / count),
@@ -287,6 +290,7 @@ const getData = async function (source) {
 
       console.log(resultObj);
 
+      // prepare data to display in weather cards
       const day1 = Object.keys(resultObj)[1];
       const day2 = Object.keys(resultObj)[2];
       const day3 = Object.keys(resultObj)[3];
@@ -319,7 +323,6 @@ const getData = async function (source) {
         day3Values.weatherDescription;
 
       // Add forecast weather icons
-
       switch (day1Values.weatherDescription) {
         case "clear sky":
           document.querySelector(
@@ -497,8 +500,6 @@ const getData = async function (source) {
         day2Values.dailyAverageMinTemp + "°C";
       document.querySelector(".forecast-min-temp-value3").innerHTML =
         day3Values.dailyAverageMinTemp + "°C";
-
-      // document.querySelector(".forecast-weather-description1").innerHTML =
     } else {
       console.log("Server error:", response.status, response.statusText);
     }
