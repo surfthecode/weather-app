@@ -9,7 +9,7 @@ body {
   content: "";
   width: 100%;
   height: 120%;
-  background-color: rgba(33, 37, 41, 1);
+  background-color: rgba(33, 37, 41, 0.5);
   clip-path: polygon(0 0, 100% 0, 0 50%);
   transform: rotateX(180deg);
 }
@@ -19,7 +19,7 @@ body {
   content: "";
   width: 100%;
   height: 120%;
-  background-color: rgba(33, 37, 41, 1);
+  background-color: rgba(33, 37, 41, 0.5);
   clip-path: polygon(0 0, 100% 0, 0 50%);
   transform: rotateY(180deg);
 }
@@ -55,7 +55,6 @@ aside {
 .aside-container {
   padding: 25px;
   border: 2px solid #b2b3b4;
-  border: 2px solid #128cba;
   border-radius: 10px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   background-color: rgba(33, 37, 41, 1);
