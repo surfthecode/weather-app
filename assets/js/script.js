@@ -1,9 +1,31 @@
 const apiKey = "47de525c8b6e8be1118dc5ace4b3687a";
-let city = "";
-let id = "";
 const inputField = document.querySelector(".userInput");
 const inputBtn = document.querySelector(".userInputBtn");
+const geolocationBtn = document.querySelector(".get-location-btn");
+let city = "";
+let id = "";
 
+// get user location coords by geolocation
+geolocationBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  function success(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+
+    const source = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+
+    getData(source);
+  }
+
+  function error() {
+    console.log("Unable to retrieve your location");
+  }
+
+  navigator.geolocation.getCurrentPosition(success, error);
+});
+
+// get user input on button click
 inputBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -11,24 +33,25 @@ inputBtn.addEventListener("click", (e) => {
 
   if (inputField.value.match(pattern)) {
     city = inputField.value;
+    const source = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&exclude=hourly&appid=${apiKey}`;
 
-    getData();
+    getData(source);
   } else {
     alert("Please provide a valid city name..");
   }
 });
 
+// get user input on press Enter
 inputBtn.addEventListener("keydown", (e) => {
   e.preventDefault();
   if (e.key === "Enter") {
     city = inputField.value;
+    const source = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&exclude=hourly&appid=${apiKey}`;
+    getData(source);
   }
-  getData();
 });
 
-const getData = async function () {
-  let source = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&exclude=hourly&appid=${apiKey}`;
-
+const getData = async function (source) {
   try {
     const response = await fetch(source);
     const data = await response.json();
@@ -215,83 +238,3 @@ const getData = async function () {
     console.log("Fetch error:", error);
   }
 };
-
-// get user location
-const getLocationButton = document.querySelector(".get-location-btn");
-let latitude = null;
-let longitude = null;
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.permissions
-      .query({ name: "geolocation" })
-      .then(function (result) {
-        if (result.state === "granted") {
-          navigator.geolocation.getCurrentPosition(showPosition);
-        } else if (result.state === "prompt") {
-          navigator.geolocation.getCurrentPosition(showPosition, showError);
-        } else if (result.state === "denied") {
-          localStorage.setItem("geolocationPermission", "denied");
-          alert("Please enable geolocation services.");
-        }
-      });
-  } else {
-    alert("Your browser does not support geolocation services.");
-  }
-}
-
-function showPosition(position) {
-  latitude = position.coords.latitude;
-  longitude = position.coords.longitude;
-  console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-  localStorage.setItem("geolocationPermission", "granted");
-  localStorage.setItem("latitude", latitude);
-  localStorage.setItem("longitude", longitude);
-}
-
-function showError(error) {
-  switch (error.code) {
-    case error.PERMISSION_DENIED:
-      localStorage.setItem("geolocationPermission", "denied");
-      alert("User denied the request for Geolocation.");
-      break;
-    case error.POSITION_UNAVAILABLE:
-      alert("Location information is unavailable.");
-      break;
-    case error.TIMEOUT:
-      alert("The request to get user location timed out.");
-      break;
-    case error.UNKNOWN_ERROR:
-      alert("An unknown error occurred.");
-      break;
-  }
-}
-
-getLocationButton.addEventListener("click", () => {
-  const geolocationPermission = localStorage.getItem("geolocationPermission");
-  if (geolocationPermission === "granted") {
-    getLocation();
-  } else if (geolocationPermission === "denied") {
-    alert("Please enable geolocation services.");
-  } else {
-    const modal = document.createElement("div");
-    modal.innerHTML = `
-      <div>
-        <p>Do you want to allow this website to access your location?</p>
-        <button id="accept-button">Accept</button>
-        <button id="reject-button">Reject</button>
-      </div>
-    `;
-    document.body.appendChild(modal);
-    const acceptButton = document.querySelector("#accept-button");
-    const rejectButton = document.querySelector("#reject-button");
-    acceptButton.addEventListener("click", () => {
-      getLocation();
-      modal.remove();
-    });
-    rejectButton.addEventListener("click", () => {
-      localStorage.setItem("geolocationPermission", "denied");
-      modal.remove();
-    });
-  }
-});
