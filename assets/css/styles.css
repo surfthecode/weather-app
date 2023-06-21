@@ -4,17 +4,27 @@ body {
   overflow: hidden;
 }
 
+nav,
+footer {
+  opacity: 0.95;
+}
+
+.navbar {
+  padding-top: 10px !important;
+}
+
 main {
   position: relative;
   padding-bottom: 66px;
 }
 
 .main-container {
-  background-image: url("../img/clear-sky.jpg");
+  background-image: url("../img/clear-sky-slate.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   z-index: 0;
+  transition: all 0.2s ease-in-out;
 }
 
 aside {
@@ -115,8 +125,8 @@ footer {
   bottom: 0;
   overflow: hidden;
   text-align: center;
-  padding-top: 10px;
-  padding-bottom: 2px;
+  padding-top: 20px;
+  padding-bottom: 5px;
 }
 
 .copyright {

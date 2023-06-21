@@ -7,7 +7,7 @@ const inputBtn = document.querySelector(".userInputBtn");
 inputBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  const pattern = /^[A-Za-z]+$/;
+  const pattern = /^[a-zA-Z][a-zA-Z ]*$/;
 
   if (inputField.value.match(pattern)) {
     city = inputField.value;
@@ -155,13 +155,17 @@ const getData = async function () {
           document.querySelector(".main-container").style.backgroundImage =
             'url("./assets/img/scattered-clouds-slate.jpg")';
           break;
+        case "overcast clouds":
+          document.querySelector(".main-container").style.backgroundImage =
+            'url("./assets/img/overcast-clouds-sahara.jpg")';
+          break;
         case "clear sky":
           document.querySelector(".main-container").style.backgroundImage =
-            'url("./assets/img/clear-sky.jpg")';
+            'url("./assets/img/clear-sky-slate.jpg")';
           break;
         case "light rain":
           document.querySelector(".main-container").style.backgroundImage =
-            'url("./assets/img/shower-rain-slate.jpg")';
+            'url("./assets/img/light-rain-2.jpg")';
           break;
         case "rain":
           document.querySelector(".main-container").style.backgroundImage =
@@ -189,7 +193,7 @@ const getData = async function () {
           break;
         default:
           document.querySelector(".main-container").style.backgroundImage =
-            'url("./assets/img/clear-sky.jpg")';
+            'url("./assets/img/clear-sky-slate.jpg")';
       }
 
       // get all forecast dates
