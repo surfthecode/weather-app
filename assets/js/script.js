@@ -18,7 +18,7 @@ geolocationBtn.addEventListener("click", (e) => {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
 
-    const source = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+    const source = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
 
     getData(source);
   }
@@ -38,7 +38,7 @@ inputBtn.addEventListener("click", (e) => {
 
   if (inputField.value.match(pattern)) {
     city = inputField.value;
-    const source = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&exclude=hourly&appid=${apiKey}`;
+    const source = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&exclude=hourly&appid=${apiKey}`;
 
     getData(source);
   } else {
@@ -51,7 +51,7 @@ inputBtn.addEventListener("keydown", (e) => {
   e.preventDefault();
   if (e.key === "Enter") {
     city = inputField.value;
-    const source = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&exclude=hourly&appid=${apiKey}`;
+    const source = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&exclude=hourly&appid=${apiKey}`;
     getData(source);
   }
 });
