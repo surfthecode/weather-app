@@ -264,9 +264,12 @@ const getData = async function (source) {
         let weatherDescription = "";
 
         let count = 0;
+
         for (const key in dateMinTempObj) {
           if (count >= 8) break;
+
           const [day, hour] = key.split(", ");
+
           if (Number(day) === date) {
             minTempSum += Number(dateMinTempObj[key]);
             maxTempSum += Number(dateMaxTempObj[key]);
