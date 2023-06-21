@@ -19,7 +19,7 @@ geolocationBtn.addEventListener("click", (e) => {
   }
 
   function error() {
-    console.log("Unable to retrieve your location");
+    alert("Unable to retrieve your location");
   }
 
   navigator.geolocation.getCurrentPosition(success, error);
