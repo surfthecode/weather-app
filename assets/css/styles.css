@@ -234,6 +234,18 @@ footer {
   line-height: 24px;
 }
 
+@media (min-width: 400px) {
+  .forecast-weather {
+    gap: 10px !important;
+  }
+}
+
+@media (min-width: 500px) {
+  .forecast-weather {
+    gap: 15px !important;
+  }
+}
+
 @media (min-width: 640px) {
   aside {
     width: 450px;
@@ -242,6 +254,10 @@ footer {
 
   .city {
     font-size: 20px !important;
+  }
+
+  .forecast-weather {
+    gap: 20px !important;
   }
 
   .forecast-weather-description1,
@@ -307,6 +323,10 @@ footer {
   .cloud-icon img,
   .humidity-icon img {
     width: 100%;
+  }
+
+  .forecast-weather {
+    gap: 30px !important;
   }
 
   .forecast-weather-description1,
