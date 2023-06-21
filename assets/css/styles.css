@@ -23,14 +23,12 @@ main {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  z-index: 0;
   transition: all 0.2s ease-in-out;
 }
 
 aside {
   width: 370px;
   font-size: 16px;
-  z-index: 0;
 }
 
 .aside-container {
@@ -149,6 +147,31 @@ footer {
 
 .userInput {
   height: 50px;
+}
+
+.userInputBtn,
+.get-location-btn {
+  height: 50px;
+}
+
+.get-location-btn {
+  width: 100%;
+  max-width: 200px;
+}
+
+.userInputBtn {
+  width: 100%;
+  max-width: 80px;
+}
+
+.nav-form {
+  width: 100%;
+  max-width: 700px;
+}
+
+.userInput {
+  width: 100%;
+  max-width: 300px;
 }
 
 .navbar-toggler {
