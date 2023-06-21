@@ -48,7 +48,7 @@ aside {
 }
 
 aside {
-  width: 370px;
+  width: 390px;
   font-size: 16px;
 }
 
@@ -137,6 +137,12 @@ aside {
 .forecast-min-temp-value2,
 .forecast-min-temp-value3 {
   color: #128cba;
+}
+
+.forecast-weather-description1,
+.forecast-weather-description2,
+.forecast-weather-description3 {
+  font-size: 12px;
 }
 
 footer {
@@ -237,6 +243,12 @@ footer {
   .city {
     font-size: 20px !important;
   }
+
+  .forecast-weather-description1,
+  .forecast-weather-description2,
+  .forecast-weather-description3 {
+    font-size: 14px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -266,6 +278,17 @@ footer {
 @media (min-width: 1200px) {
   aside {
     scale: 1.2;
+    width: 100%;
+    max-width: 550px;
+  }
+
+  .sun-cycles {
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+  }
+
+  .forecast-weather {
+    padding-top: 35px !important;
   }
 
   .current-temp-value {
@@ -273,7 +296,7 @@ footer {
   }
 
   .aside-container {
-    padding: 50px;
+    padding: 35px;
   }
 
   .cloud-icon,
@@ -284,5 +307,11 @@ footer {
   .cloud-icon img,
   .humidity-icon img {
     width: 100%;
+  }
+
+  .forecast-weather-description1,
+  .forecast-weather-description2,
+  .forecast-weather-description3 {
+    font-size: 16px;
   }
 }

@@ -25,5 +25,7 @@ WebApp based on an API
 - [x] Add API response current weather info to webpage using DOM manipulation
 - [x] Finalize styling for user input field and get device location button
 - [x] Add @media queries styling for Homepage
-- [x] Add @media queries styling for Contact page
-- [ ] Write logic for processing API forecast data and insert in page
+- [x] Write logic for processing API forecast data and insert in page
+- [ ] Add weather icons for forecast cards
+- [ ] Finalize content and styling for Contact page
+- [ ] Add @media queries styling for Contact page

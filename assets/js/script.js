@@ -5,6 +5,14 @@ const geolocationBtn = document.querySelector(".get-location-btn");
 let city = "";
 let id = "";
 
+let dateMinTempObj = {};
+let dateMaxTempObj = {};
+let dateWeatherDescriptionObj = {};
+
+let resultObj = {};
+
+let currentDate;
+
 // get user location coords by geolocation
 geolocationBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -95,19 +103,16 @@ const getData = async function (source) {
       document.querySelector(".sunset-value").innerHTML = sunset;
 
       // get current date and time;
-      let currentDate = new Date(data.list[0].dt * 1000).toLocaleString(
-        "en-GB",
-        {
-          weekday: "short",
-          day: "numeric",
-          hour12: true,
-          hour: "numeric",
-          minute: "2-digit",
-        }
-      );
+      currentDate = new Date().toLocaleString("en-GB", {
+        weekday: "short",
+        day: "numeric",
+        hour12: true,
+        hour: "numeric",
+        minute: "2-digit",
+      });
       console.log(currentDate);
 
-      // update date
+      // Add date and time
       document.querySelector(".date-time").innerHTML = currentDate;
 
       // get current temp
@@ -222,15 +227,275 @@ const getData = async function (source) {
       // get all forecast dates
       data.list.forEach((obj) => {
         const dates = new Date(obj.dt * 1000).toLocaleString("en-GB", {
-          weekday: "short",
           day: "numeric",
-          hour12: true,
+          hour12: false,
           hour: "numeric",
           minute: "2-digit",
         });
 
-        console.log(dates);
+        // const temp = obj.main.temp;
+        const weatherDesc = obj.weather[0].description;
+        const minTemp = obj.main.temp_min;
+        const maxTemp = obj.main.temp_max;
+
+        dateMinTempObj[dates] = minTemp;
+        dateMaxTempObj[dates] = maxTemp;
+        dateWeatherDescriptionObj[dates] = weatherDesc;
       });
+
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      const dayAfterTomorrow = new Date(today);
+      dayAfterTomorrow.setDate(dayAfterTomorrow.getDate() + 2);
+      const dayAfterDayAfterTomorrow = new Date(today);
+      dayAfterDayAfterTomorrow.setDate(dayAfterDayAfterTomorrow.getDate() + 3);
+
+      const dates = [
+        today.getDate(),
+        tomorrow.getDate(),
+        dayAfterTomorrow.getDate(),
+        dayAfterDayAfterTomorrow.getDate(),
+      ];
+
+      for (const date of dates) {
+        let minTempSum = 0;
+        let maxTempSum = 0;
+        let weatherDescription = "";
+
+        let count = 0;
+        for (const key in dateMinTempObj) {
+          if (count >= 8) break;
+          const [day, hour] = key.split(", ");
+          if (Number(day) === date) {
+            minTempSum += Number(dateMinTempObj[key]);
+            maxTempSum += Number(dateMaxTempObj[key]);
+            weatherDescription = dateWeatherDescriptionObj[key];
+            count++;
+          }
+        }
+
+        resultObj[date] = {
+          dailyAverageMinTemp: Math.floor(minTempSum / count),
+          dailyAverageMaxTemp: Math.round(maxTempSum / count),
+          weatherDescription,
+        };
+      }
+
+      console.log(resultObj);
+
+      const day1 = Object.keys(resultObj)[1];
+      const day2 = Object.keys(resultObj)[2];
+      const day3 = Object.keys(resultObj)[3];
+
+      const day1Day = tomorrow.toLocaleDateString("en-GB", {
+        weekday: "short",
+      });
+      const day2Day = dayAfterTomorrow.toLocaleDateString("en-GB", {
+        weekday: "short",
+      });
+      const day3Day = dayAfterDayAfterTomorrow.toLocaleDateString("en-GB", {
+        weekday: "short",
+      });
+
+      const day1Values = Object.values(resultObj)[1];
+      const day2Values = Object.values(resultObj)[2];
+      const day3Values = Object.values(resultObj)[3];
+
+      // Add forecast day names
+      document.querySelector(".day1").innerHTML = day1Day;
+      document.querySelector(".day2").innerHTML = day2Day;
+      document.querySelector(".day3").innerHTML = day3Day;
+
+      // Add forecast weather description
+      document.querySelector(".forecast-weather-description1").innerHTML =
+        day1Values.weatherDescription;
+      document.querySelector(".forecast-weather-description2").innerHTML =
+        day2Values.weatherDescription;
+      document.querySelector(".forecast-weather-description3").innerHTML =
+        day3Values.weatherDescription;
+
+      // Add forecast weather icons
+
+      switch (day1Values.weatherDescription) {
+        case "clear sky":
+          document.querySelector(
+            ".day1-icon"
+          ).src = `https://openweathermap.org/img/wn/01d@2x.png`;
+          break;
+        case "few clouds":
+          document.querySelector(
+            ".day1-icon"
+          ).src = `https://openweathermap.org/img/wn/02d@2x.png`;
+          break;
+
+        case "scattered clouds":
+          document.querySelector(
+            ".day1-icon"
+          ).src = `https://openweathermap.org/img/wn/03d@2x.png`;
+          break;
+
+        case "broken clouds":
+          document.querySelector(
+            ".day1-icon"
+          ).src = `https://openweathermap.org/img/wn/04d@2x.png`;
+          break;
+        case "shower rain":
+          document.querySelector(
+            ".day1-icon"
+          ).src = `https://openweathermap.org/img/wn/09d@2x.png`;
+          break;
+        case "rain":
+          document.querySelector(
+            ".day1-icon"
+          ).src = `https://openweathermap.org/img/wn/10d@2x.png`;
+          break;
+        case "thunderstorm":
+          document.querySelector(
+            ".day1-icon"
+          ).src = `https://openweathermap.org/img/wn/11d@2x.png`;
+          break;
+        case "snow":
+          document.querySelector(
+            ".day1-icon"
+          ).src = `https://openweathermap.org/img/wn/13d@2x.png`;
+          break;
+        case "mist":
+          document.querySelector(
+            ".day1-icon"
+          ).src = `https://openweathermap.org/img/wn/50d@2x.png`;
+          break;
+        default:
+          document.querySelector(
+            ".day1-icon"
+          ).src = `https://openweathermap.org/img/wn/01d@2x.png`;
+      }
+
+      switch (day2Values.weatherDescription) {
+        case "clear sky":
+          document.querySelector(
+            ".day2-icon"
+          ).src = `https://openweathermap.org/img/wn/01d@2x.png`;
+          break;
+        case "few clouds":
+          document.querySelector(
+            ".day2-icon"
+          ).src = `https://openweathermap.org/img/wn/02d@2x.png`;
+          break;
+
+        case "scattered clouds":
+          document.querySelector(
+            ".day2-icon"
+          ).src = `https://openweathermap.org/img/wn/03d@2x.png`;
+          break;
+
+        case "broken clouds":
+          document.querySelector(
+            ".day2-icon"
+          ).src = `https://openweathermap.org/img/wn/04d@2x.png`;
+          break;
+        case "shower rain":
+          document.querySelector(
+            ".day2-icon"
+          ).src = `https://openweathermap.org/img/wn/09d@2x.png`;
+          break;
+        case "rain":
+          document.querySelector(
+            ".day2-icon"
+          ).src = `https://openweathermap.org/img/wn/10d@2x.png`;
+          break;
+        case "thunderstorm":
+          document.querySelector(
+            ".day2-icon"
+          ).src = `https://openweathermap.org/img/wn/11d@2x.png`;
+          break;
+        case "snow":
+          document.querySelector(
+            ".day2-icon"
+          ).src = `https://openweathermap.org/img/wn/13d@2x.png`;
+          break;
+        case "mist":
+          document.querySelector(
+            ".day2-icon"
+          ).src = `https://openweathermap.org/img/wn/50d@2x.png`;
+          break;
+        default:
+          document.querySelector(
+            ".day2-icon"
+          ).src = `https://openweathermap.org/img/wn/01d@2x.png`;
+      }
+
+      switch (day3Values.weatherDescription) {
+        case "clear sky":
+          document.querySelector(
+            ".day3-icon"
+          ).src = `https://openweathermap.org/img/wn/01d@2x.png`;
+          break;
+        case "few clouds":
+          document.querySelector(
+            ".day3-icon"
+          ).src = `https://openweathermap.org/img/wn/02d@2x.png`;
+          break;
+
+        case "scattered clouds":
+          document.querySelector(
+            ".day3-icon"
+          ).src = `https://openweathermap.org/img/wn/03d@2x.png`;
+          break;
+
+        case "broken clouds":
+          document.querySelector(
+            ".day3-icon"
+          ).src = `https://openweathermap.org/img/wn/04d@2x.png`;
+          break;
+        case "shower rain":
+          document.querySelector(
+            ".day3-icon"
+          ).src = `https://openweathermap.org/img/wn/09d@2x.png`;
+          break;
+        case "rain":
+          document.querySelector(
+            ".day3-icon"
+          ).src = `https://openweathermap.org/img/wn/10d@2x.png`;
+          break;
+        case "thunderstorm":
+          document.querySelector(
+            ".day3-icon"
+          ).src = `https://openweathermap.org/img/wn/11d@2x.png`;
+          break;
+        case "snow":
+          document.querySelector(
+            ".day3-icon"
+          ).src = `https://openweathermap.org/img/wn/13d@2x.png`;
+          break;
+        case "mist":
+          document.querySelector(
+            ".day3-icon"
+          ).src = `https://openweathermap.org/img/wn/50d@2x.png`;
+          break;
+        default:
+          document.querySelector(
+            ".day3-icon"
+          ).src = `https://openweathermap.org/img/wn/01d@2x.png`;
+      }
+
+      // Add forecast day max temp
+      document.querySelector(".forecast-max-temp-value1").innerHTML =
+        day1Values.dailyAverageMaxTemp + "°C";
+      document.querySelector(".forecast-max-temp-value2").innerHTML =
+        day2Values.dailyAverageMaxTemp + "°C";
+      document.querySelector(".forecast-max-temp-value3").innerHTML =
+        day3Values.dailyAverageMaxTemp + "°C";
+
+      // Add forecast day min temp
+      document.querySelector(".forecast-min-temp-value1").innerHTML =
+        day1Values.dailyAverageMinTemp + "°C";
+      document.querySelector(".forecast-min-temp-value2").innerHTML =
+        day2Values.dailyAverageMinTemp + "°C";
+      document.querySelector(".forecast-min-temp-value3").innerHTML =
+        day3Values.dailyAverageMinTemp + "°C";
+
+      // document.querySelector(".forecast-weather-description1").innerHTML =
     } else {
       console.log("Server error:", response.status, response.statusText);
     }
