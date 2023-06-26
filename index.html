@@ -11,34 +11,76 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./assets/css/styles.css" />
-    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon/favicon.ico" />
+
     <title>WeatherGuru - Home</title>
   </head>
-  <body>
-    <header class="container-fluid nav-wrapper py-3">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary nav-wrapper py-0">
-        <div class="container-fluid nav-wrapper">
+
+  <body class="d-flex flex-column justify-content-center align-items-center">
+    <header class="w-100">
+      <nav
+        class="navbar navbar-expand-lg navbar-dark bg-dark py-3"
+        aria-label="Offcanvas navbar large"
+      >
+        <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <img
               class="weather-guru-logo"
-              src="./assets/img/logo-WeatherGuru-lg.png"
+              src="./assets/img/logo - WeatherGuru.jpg"
               alt="weatherguru logo"
             />
           </a>
           <button
-            class="navbar-toggler"
+            class="navbar-toggler btn-outline-primary"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar2"
+            aria-controls="offcanvasNavbar2"
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="w-100 d-flex flex-row justify-content-end text-end">
-              <ul class="navbar-nav">
+          <div
+            class="offcanvas offcanvas-end text-bg-dark offcanvas-navbar"
+            tabindex="-1"
+            id="offcanvasNavbar2"
+            aria-labelledby="offcanvasNavbar2Label"
+          >
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbar2Label">
+                WeatherGuru
+              </h5>
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body mt-2">
+              <form
+                class="d-flex mt-3 mt-lg-0 nav-form flex-wrap gap-3"
+                role="search"
+              >
+                <input
+                  class="form-control me-2 userInput"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button
+                  class="btn btn-outline-primary userInputBtn me-2"
+                  type="submit"
+                >
+                  Search
+                </button>
+                <button class="get-location-btn btn btn-outline-secondary">
+                  Get Device Location
+                </button>
+              </form>
+
+              <ul
+                class="navbar-nav justify-content-end flex-grow-1 pe-3 align-items-center"
+              >
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="#"
                     >Home</a
@@ -46,9 +88,6 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="./pages/about.html">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="./pages/puns.html">Puns</a>
                 </li>
               </ul>
             </div>
@@ -58,47 +97,12 @@
     </header>
 
     <main
-      class="main-container d-flex flex-row flex-wrap justify-content-center mt-3"
+      class="main-container d-flex flex-row flex-wrap justify-content-center align-items-center flex-grow-1 w-100"
     >
-      <section
-        class="hero-section d-flex flex-column justify-content-center align-items-center"
-      >
-        <h1 class="title fs-3 mt-1">
-          <span class="title-selection">WeatherGuru</span> - Your Personal
-          Weather Assistant
-        </h1>
-        <h4 class="subtitle">
-          GET ACCURATE WEATHER FORECASTS ANYWHERE, ANYTIME
-        </h4>
-        <p class="hero-content mt-4">
-          Welcome to WeatherGuru! Our app provides you with accurate weather
-          forecasts for any location in the world. With our easy-to-use
-          interface, you can quickly check the weather conditions and plan your
-          day accordingly. Our app is designed to be simple and intuitive, so
-          you can get the information you need without any hassle. Try it out
-          today and see how easy it is to stay on top of the weather!
-        </p>
-
-        <form class="input-form mt-4">
-          <div
-            class="input-form-container d-flex flex-row justify-content-between align-items-center"
-          >
-            <input class="input-field" type="text" />
-            <button class="input-btn" class="fs-6">&#x276F;</button>
-          </div>
-
-          <div
-            class="geolocation d-flex flex-row justify-content-center align-items-center"
-          >
-            <a href="#" class="input-link fs-4">Get device location</a>
-          </div>
-        </form>
-      </section>
-
       <aside class="aside">
-        <div class="aside-container d-flex flex-column mt-5">
+        <div class="aside-container d-flex flex-column">
           <div
-            class="location-container d-flex flex-row justify-content-between align-items-start"
+            class="location-container d-flex flex-row justify-content-between align-items-center"
           >
             <div
               class="location d-flex flex-row justify-content-start align-items-center"
@@ -106,18 +110,18 @@
               <div class="location-icon m-0 p-0 d-flex">
                 <img
                   class="height16"
-                  src="./assets/icons/location-outline.svg"
+                  src="./assets/icons/location-outline-white.svg"
                   alt="location pin icon"
                 />
               </div>
-              <div class="city size16 ps-1">Tenerife, RO</div>
+              <div class="city size16 ps-1 white">Tenerife, RO</div>
             </div>
 
-            <div class="date-time">Fri 16, 1:22 pm</div>
+            <div class="date-time white">Fri 16, 1:22 pm</div>
           </div>
 
           <div
-            class="current-weather d-flex flex-row justify-content-between align-items-center pt-2 pb-2 ps-1 pe-1"
+            class="current-weather d-flex flex-row justify-content-between align-items-center py-4 ps-1 pe-1"
           >
             <div class="temp d-flex flex-row justify-content-start">
               <div class="current-temp-value size48">18</div>
@@ -172,7 +176,7 @@
           </div>
 
           <div
-            class="current-weather-status d-flex flex-row justify-content-between align-items-center pt-3 pb-3 ps-1 pe-1"
+            class="current-weather-status d-flex flex-row justify-content-between align-items-center py-3 ps-1 pe-1"
           >
             <div
               class="cloud-container d-flex flex-column justify-content-center align-items-center"
@@ -180,11 +184,11 @@
               <div class="cloud-icon">
                 <img
                   class="height20"
-                  src="./assets/icons/cloud-outline.svg"
+                  src="./assets/icons/cloud-outline-white.svg"
                   alt="cloud icon"
                 />
               </div>
-              <div class="cloud-value">20%</div>
+              <div class="cloud-value white">20%</div>
             </div>
 
             <div class="weather-status">light rain</div>
@@ -195,16 +199,16 @@
               <div class="humidity-icon">
                 <img
                   class="height20"
-                  src="./assets/icons/humidity-outline.svg"
+                  src="./assets/icons/humidity-outline-white.svg"
                   alt="humidity icon"
                 />
               </div>
-              <div class="humidity-value">20%</div>
+              <div class="humidity-value white">20%</div>
             </div>
           </div>
 
           <div
-            class="sun-cycles d-flex flex-row justify-content-between align-items-center pt-3 pb-3 ps-1 pe-1"
+            class="sun-cycles d-flex flex-row justify-content-between align-items-center py-4 ps-1 pe-1"
           >
             <div
               class="sunrise-container d-flex flex-row justify-content-start gap-1"
@@ -212,11 +216,11 @@
               <div class="sunrise-icon">
                 <img
                   class="height20"
-                  src="./assets/icons/sunny-outline.svg"
+                  src="./assets/icons/sunny-outline-white.svg"
                   alt="sunrise icon"
                 />
               </div>
-              <div class="sunrise">
+              <div class="sunrise white">
                 sunrise: <span class="sunrise-value">05:00</span>
               </div>
             </div>
@@ -227,32 +231,35 @@
               <div class="sunset-icon">
                 <img
                   class="height20"
-                  src="./assets/icons/moon-outline.svg"
+                  src="./assets/icons/moon-outline-white.svg"
                   alt="sunset icon"
                 />
               </div>
-              <div class="sunset">
+              <div class="sunset white">
                 sunset: <span class="sunset-value">05:00</span>
               </div>
             </div>
           </div>
 
           <div
-            class="forecast-weather d-flex flex-row justify-content-between pt-3"
+            class="forecast-weather d-flex flex-row justify-content-center gap-2 pt-4"
           >
             <div
-              class="day1-container d-flex flex-column justify-content-start align-items-center"
+              class="day1-container d-flex flex-column justify-content-start align-items-center w-100"
             >
-              <div class="day1 pb-1">day1</div>
+              <div class="day1 pb-1 white">day1</div>
 
               <div class="forecast-weather-icon1 fwi">
                 <img
+                  class="day1-icon"
                   src="./assets/img/light-rain.png"
                   alt="forecast weather icon"
                 />
               </div>
 
-              <div class="forecast-weather-description1 pb-2">light rain</div>
+              <div class="forecast-weather-description1 pb-2 white">
+                light rain
+              </div>
 
               <div
                 class="forecast-max-temp-container1 d-flex flex-row justify-content-between gap-1 align-items-start"
@@ -286,18 +293,21 @@
             </div>
 
             <div
-              class="day2-container d-flex flex-column justify-content-start align-items-center"
+              class="day2-container d-flex flex-column justify-content-start align-items-center w-100"
             >
-              <div class="day2 pb-1">day2</div>
+              <div class="day2 pb-1 white">day2</div>
 
               <div class="forecast-weather-icon2 fwi">
                 <img
+                  class="day2-icon"
                   src="./assets/img/light-rain.png"
                   alt="forecast weather icon"
                 />
               </div>
 
-              <div class="forecast-weather-description2 pb-2">light rain</div>
+              <div class="forecast-weather-description2 pb-2 white">
+                light rain
+              </div>
 
               <div
                 class="forecast-max-temp-container2 d-flex flex-row justify-content-between gap-1 align-items-start"
@@ -331,18 +341,21 @@
             </div>
 
             <div
-              class="day3-container d-flex flex-column justify-content-start align-items-center"
+              class="day3-container d-flex flex-column justify-content-start align-items-center w-100"
             >
-              <div class="day3 pb-1">day3</div>
+              <div class="day3 pb-1 white">day3</div>
 
               <div class="forecast-weather-icon3 fwi">
                 <img
+                  class="day3-icon"
                   src="./assets/img/light-rain.png"
                   alt="forecast weather icon"
                 />
               </div>
 
-              <div class="forecast-weather-description3 pb-2">light rain</div>
+              <div class="forecast-weather-description3 pb-2 white">
+                light rain
+              </div>
 
               <div
                 class="forecast-max-temp-container3 d-flex flex-row justify-content-between gap-1 align-items-start"
@@ -379,31 +392,27 @@
       </aside>
     </main>
 
-    <footer>
-      <div class="footer-left px-0">
-        <div class="footer-brand">
-          <img
-            src="../assets/img/logo-WeatherGuru-lg.png"
-            alt="weather guru logo"
-          />
+    <footer
+      class="footer bg-dark w-100 d-flex flex-column justify-content-center align-items-center"
+    >
+      <div class="row align-items-center w-100">
+        <div class="col w-50">
+          <a href="/" class="text-decoration-none">
+            <img
+              class="weather-guru-logo"
+              src="./assets/img/logo - WeatherGuru.jpg"
+              alt="weatherguru logo"
+            />
+          </a>
         </div>
-        <p class="">1234 Rebel Street, The Resistance, A Galaxy Far Far Away</p>
-        <p class="">Phone: +34 123 456 789</p>
-        <p class="">Email: info@weatherguru.com</p>
+
+        <div class="col white w-50">
+          <a class="footer-contact nodeco white" href="./pages/about.html"
+            >About</a
+          >
+        </div>
       </div>
-      <div class="footer-right">
-        <ul class="footer-links">
-          <li><a class="footer-item" href="../index.html">Home</a></li>
-          <li><a class="footer-item" href="#">About</a></li>
-          <li><a class="footer-item" href="../pages/puns.html">Puns</a></li>
-        </ul>
-        <p class="">&copy; 2023 Alex M. - All rights reserved.</p>
-        <p class="disclaimer">
-          Disclaimer: This app is for entertainment purposes only. The weather
-          data provided is not guaranteed to be 100% accurate as mysterious the
-          way of the force is..
-        </p>
-      </div>
+      <p class="copyright m-0">&copy; 2023 Alex M. All rights reserved.</p>
     </footer>
 
     <script
