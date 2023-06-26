@@ -65,6 +65,8 @@ const getData = async function (source) {
 
     if (response.status === 400) {
       alert("Please provide a valid city name");
+    } else if (response.status === 404) {
+      alert("We couldn't find your city in our database");
     } else if (response.ok) {
       console.log("Success:", data);
 
@@ -560,16 +562,18 @@ const jokes = [
 const jokeButton = document.getElementById("jokeButton");
 const jokeList = document.getElementById("jokeList");
 
-jokeButton.addEventListener("click", () => {
-  // Hide previous joke
-  if (jokeList.children.length > 0) {
-    jokeList.removeChild(jokeList.children[0]);
-  }
+if (jokeButton) {
+  jokeButton.addEventListener("click", () => {
+    // Hide previous joke
+    if (jokeList.children.length > 0) {
+      jokeList.removeChild(jokeList.children[0]);
+    }
 
-  // Show new joke
-  const randomIndex = Math.floor(Math.random() * jokes.length);
-  const randomJoke = jokes[randomIndex];
-  const randomJokeElement = document.createElement("li");
-  randomJokeElement.innerText = randomJoke;
-  jokeList.appendChild(randomJokeElement);
-});
+    // Show new joke
+    const randomIndex = Math.floor(Math.random() * jokes.length);
+    const randomJoke = jokes[randomIndex];
+    const randomJokeElement = document.createElement("li");
+    randomJokeElement.innerText = randomJoke;
+    jokeList.appendChild(randomJokeElement);
+  });
+}
