@@ -239,7 +239,7 @@ const getData = async function (source) {
         const minTemp = obj.main.temp_min;
         const maxTemp = obj.main.temp_max;
 
-        // add each fate with its description, min/max temps to each top level object
+        // add each date with its description, min/max temps to each top level object
         dateMinTempObj[dates] = minTemp;
         dateMaxTempObj[dates] = maxTemp;
         dateWeatherDescriptionObj[dates] = weatherDesc;
