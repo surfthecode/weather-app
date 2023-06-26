@@ -551,7 +551,7 @@ const jokes = [
   "Lightning storms can be very striking.",
   "Cloud games are thunder-way.",
   "Perhaps I can shed some lightning on the matter.",
-  "Q: What did the clouds get as a consolation prize?\nA: certificate of precipitation.",
+  "Q: What did the clouds get as a consolation prize?\nA: A certificate of precipitation.",
   "Q: Why did the cloud stay at home?\nA: It was feeling under the weather.",
   "Q: What is the opposite of a cold front?\nA: A warm back.",
   "Q: What do you call dangerous precipitation?\nA: A rain of terror!",
