@@ -271,7 +271,6 @@ footer {
   background-color: rgba(245, 135, 51, 1);
   border-radius: 10px;
   box-shadow: 0px 0px 5px rgba(245, 135, 51, 0.3);
-  color: #128cba;
   color: #fff;
   text-transform: uppercase;
   font-weight: 600;
@@ -302,13 +301,10 @@ footer {
   background-color: rgba(18, 140, 186, 1);
   border-radius: 10px;
   box-shadow: 0px 0px 5px rgba(245, 135, 51, 0.3);
-  color: #128cba;
   color: #fff;
   text-transform: uppercase;
   font-weight: 600;
   font-size: large;
-  z-index: 1;
-  cursor: pointer;
 }
 .contact-bubble::before {
   content: "";
