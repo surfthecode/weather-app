@@ -2,6 +2,7 @@ body {
   min-height: 100vh;
   position: relative;
   overflow: hidden;
+  background-color: rgba(33, 37, 41, 1);
 }
 
 .main-container::before {
@@ -232,6 +233,70 @@ footer {
 .size16 {
   font-size: 16px;
   line-height: 24px;
+}
+
+/* Contact page */
+.main-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(33, 37, 41, 1);
+  color: #fff;
+}
+
+.main-contact h1 {
+  color: #128cba;
+  margin-top: 150px;
+  padding: 0 20px;
+}
+
+.main-contact p {
+  margin-top: 75px;
+  padding: 0 20px;
+  max-width: 1000px;
+  font-size: 18px;
+}
+
+.speech-bubble {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 150px;
+  height: 60px;
+  background-color: rgba(245, 135, 51, 1);
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(245, 135, 51, 0.3);
+  color: #128cba;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: large;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.speech-bubble::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  right: 20px;
+  border-style: solid;
+  border-width: 10px 10px 0px;
+  border-color: rgba(245, 135, 51, 1) transparent transparent transparent;
+}
+
+#jokeList {
+  list-style-type: none;
+  padding-top: 100px;
+  padding-left: 0px;
+  font-size: large;
+  color: rgba(245, 135, 51, 0.9);
+  text-align: center;
+  font-size: 24px;
 }
 
 @media (min-width: 400px) {

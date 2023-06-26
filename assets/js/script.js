@@ -11,24 +11,26 @@ let resultObj = {};
 let currentDate;
 
 // get user location coords by geolocation
-geolocationBtn.addEventListener("click", (e) => {
-  e.preventDefault();
+if (geolocationBtn) {
+  geolocationBtn.addEventListener("click", (e) => {
+    e.preventDefault();
 
-  function success(position) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
+    function success(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
 
-    const source = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+      const source = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
 
-    getData(source);
-  }
+      getData(source);
+    }
 
-  function error() {
-    alert("Unable to retrieve your location");
-  }
+    function error() {
+      alert("Unable to retrieve your location");
+    }
 
-  navigator.geolocation.getCurrentPosition(success, error);
-});
+    navigator.geolocation.getCurrentPosition(success, error);
+  });
+}
 
 // get user input on button click
 inputBtn.addEventListener("click", (e) => {
@@ -534,3 +536,40 @@ const getData = async function (source) {
     console.log("Fetch error:", error);
   }
 };
+
+// Contact page random weather pun
+const jokes = [
+  "What do you call a snowman with a six-pack? An abdominal snowman.",
+  "Why did the sun go to school? To get brighter!",
+  "What do you call a snowman with a sunburn? A puddle.",
+  "What do you call a bear in the rain? A drizzly bear.",
+  "Why don't scientists trust atoms? Because they make up everything.",
+  "Why did the man put his money in the freezer? He wanted cold hard cash!",
+  "Why did the tomato turn red? Because it saw the salad dressing!",
+  "Suntimes you win, suntimes you lose.",
+  "The rain of Queen Elizabeth II.",
+  "Lightning storms can be very striking.",
+  "Cloud games are thunder-way.",
+  "Perhaps I can shed some lightning on the matter.",
+  "Q: What did the clouds get as a consolation prize?\nA: certificate of precipitation.",
+  "Q: Why did the cloud stay at home?\nA: It was feeling under the weather.",
+  "Q: What is the opposite of a cold front?\nA: A warm back.",
+  "Q: What do you call dangerous precipitation?\nA: A rain of terror!",
+];
+
+const jokeButton = document.getElementById("jokeButton");
+const jokeList = document.getElementById("jokeList");
+
+jokeButton.addEventListener("click", () => {
+  // Hide previous joke
+  if (jokeList.children.length > 0) {
+    jokeList.removeChild(jokeList.children[0]);
+  }
+
+  // Show new joke
+  const randomIndex = Math.floor(Math.random() * jokes.length);
+  const randomJoke = jokes[randomIndex];
+  const randomJokeElement = document.createElement("li");
+  randomJokeElement.innerText = randomJoke;
+  jokeList.appendChild(randomJokeElement);
+});
