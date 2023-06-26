@@ -28,7 +28,7 @@ URL: https://surfthecode.github.io/weather-app/
 - [x] Finalize styling for user input field and get device location button
 - [x] Add @media queries styling for Homepage
 - [x] Write logic for processing API forecast data and insert in page
-- [ ] Add weather icons for forecast cards
+- [x] Add weather icons for forecast cards
 - [ ] Finalize content and styling for Contact page
 - [ ] Add @media queries styling for Contact page
 - [ ] Update forecast weather cards switch cases with latest weather codes

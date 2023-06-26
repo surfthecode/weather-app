@@ -334,7 +334,11 @@ const getData = async function (source) {
             ".day1-icon"
           ).src = `https://openweathermap.org/img/wn/02d@2x.png`;
           break;
-
+        case "overcast clouds":
+          document.querySelector(
+            ".day1-icon"
+          ).src = `https://openweathermap.org/img/wn/04d@2x.png`;
+          break;
         case "scattered clouds":
           document.querySelector(
             ".day1-icon"
@@ -370,6 +374,11 @@ const getData = async function (source) {
           document.querySelector(
             ".day1-icon"
           ).src = `https://openweathermap.org/img/wn/50d@2x.png`;
+          break;
+        case "light rain":
+          document.querySelector(
+            ".day1-icon"
+          ).src = `https://openweathermap.org/img/wn/10d@2x.png`;
           break;
         default:
           document.querySelector(
@@ -388,7 +397,11 @@ const getData = async function (source) {
             ".day2-icon"
           ).src = `https://openweathermap.org/img/wn/02d@2x.png`;
           break;
-
+        case "overcast clouds":
+          document.querySelector(
+            ".day2-icon"
+          ).src = `https://openweathermap.org/img/wn/04d@2x.png`;
+          break;
         case "scattered clouds":
           document.querySelector(
             ".day2-icon"
@@ -425,6 +438,11 @@ const getData = async function (source) {
             ".day2-icon"
           ).src = `https://openweathermap.org/img/wn/50d@2x.png`;
           break;
+        case "light rain":
+          document.querySelector(
+            ".day2-icon"
+          ).src = `https://openweathermap.org/img/wn/10d@2x.png`;
+          break;
         default:
           document.querySelector(
             ".day2-icon"
@@ -442,7 +460,11 @@ const getData = async function (source) {
             ".day3-icon"
           ).src = `https://openweathermap.org/img/wn/02d@2x.png`;
           break;
-
+        case "overcast clouds":
+          document.querySelector(
+            ".day3-icon"
+          ).src = `https://openweathermap.org/img/wn/04d@2x.png`;
+          break;
         case "scattered clouds":
           document.querySelector(
             ".day3-icon"
@@ -458,6 +480,11 @@ const getData = async function (source) {
           document.querySelector(
             ".day3-icon"
           ).src = `https://openweathermap.org/img/wn/09d@2x.png`;
+          break;
+        case "light rain":
+          document.querySelector(
+            ".day3-icon"
+          ).src = `https://openweathermap.org/img/wn/10d@2x.png`;
           break;
         case "rain":
           document.querySelector(
