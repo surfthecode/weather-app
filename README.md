@@ -29,6 +29,12 @@ URL: https://surfthecode.github.io/weather-app/
 - [x] Add @media queries styling for Homepage
 - [x] Write logic for processing API forecast data and insert in page
 - [x] Add weather icons for forecast cards
-- [ ] Finalize content and styling for Contact page
-- [ ] Add @media queries styling for Contact page
-- [ ] Update forecast weather cards switch cases with latest weather codes
+- [x] Finalize content and styling for Contact page
+- [x] Add @media queries styling for Contact page
+- [x] Update forecast weather cards switch cases with latest weather codes
+
+### Continuous Improvement
+
+- [ ] Add opening animation on page load, while hiding weather card, until user interacts with the page
+- [ ] Split getData function into components
+- [ ] Improve weather icon display method based on weather description, and update weather description list
