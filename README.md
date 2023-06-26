@@ -35,7 +35,7 @@ URL: https://surfthecode.github.io/weather-app/
 
 ### Continuous Improvement
 
+- [ ] Update footer layout: elements spacing, sync with navbar
 - [ ] Add opening animation on page load, while hiding weather card, until user interacts with the page
 - [ ] Split getData function into components
 - [ ] Improve weather icon display method based on weather description, and update weather description list
-
